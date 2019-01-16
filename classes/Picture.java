@@ -173,7 +173,81 @@ public class Picture extends SimplePicture
       }
     } 
   }
-  
+
+  public void mirrorVerticalRightToLeft(){
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        leftPixel = pixels[row][width - 1 - col];
+        rightPixel = pixels[row][col];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+
+  public void mirrorHorizontal(){
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels.length;
+    for (int row = 0; row < pixels[0].length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        rightPixel = pixels[width - 1 - col][row];
+        leftPixel = pixels[col][row];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+
+  public void mirrorHorizontalBotToTop(){
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels.length;
+    for (int row = 0; row < pixels[0].length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        leftPixel = pixels[width - 1 - col][row];
+        rightPixel = pixels[col][row];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+
+  public void mirrorDiagonal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels.length;
+    for (int row = 0; row < width; row++)
+    {
+      for (int col = 0; col <= width - 5; col++)
+      {
+        if(row == col)
+        {
+          row++;
+          col=0;
+          rightPixel = pixels[row][width -1 - col];
+          leftPixel = pixels[col][row];
+          leftPixel.setColor(leftPixel.getColor());
+        }
+        else {
+          leftPixel = pixels[row][width - 1 - col];
+          rightPixel = pixels[col][row];
+          rightPixel.setColor(leftPixel.getColor());
+        }
+      }
+    }
+  }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {

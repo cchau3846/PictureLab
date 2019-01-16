@@ -49,7 +49,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("whiteFlower.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -62,6 +62,34 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+
+  public static void testMirrorVerticalRightToLeft(){
+    Picture caterpillar = new Picture("whiteFlower.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+
+  public static void testMirrorHorizontal() {
+    Picture caterpillar = new Picture("whiteFlower.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
+    caterpillar.explore();
+  }
+
+  public static void testMirrorHorizontalBotToTop(){
+    Picture caterpillar = new Picture("whiteFlower.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.explore();
+  }
+
+  public static void testmirrorDiagonal() {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
   }
   
   /** Method to test the collage method */
@@ -79,7 +107,8 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-  
+
+
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -87,7 +116,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    viewImg();
+    //viewImg();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -95,6 +124,10 @@ public class PictureTester
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
+    //testMirrorVerticalRightToLeft();
+    //testMirrorHorizontal();
+    //testMirrorHorizontalBotToTop();
+    testmirrorDiagonal();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
@@ -111,4 +144,7 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
   }
+
+
+
 }
